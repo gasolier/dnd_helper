@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="main.css">
+        
+        <title>D&D Helper</title>
+    </head>
+    
+    <body>
+        <div id='crit-fail'></div>
+        <div id='fail-overlay'></div>
+        
+        <div id='crit-succ'></div>
+        <div id='succ-overlay'></div>
+        
+        <div class='dice-roll-panel'>
+            <h1>Roll Dice</h1>
+            
+            <input id='number-of-dice' type="number" step='1' name=""> d <input id='dice-type' type="number" step='1' name=""> + <input id='dice-bonus' type="number" step='1' name="">
+            <br>
+            <button id='roll-button'>Roll</button>
+            <br>
+            Last Result = <span id='last-result'>n/a</span>
+        </div>
+
+        <script type="text/javascript" src='index.js'></script>
+    </body>
+</html>

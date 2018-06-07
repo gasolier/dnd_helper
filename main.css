@@ -1,0 +1,70 @@
+#crit-fail {
+    position: fixed;
+    
+    top: -1%;
+    left: -1%;
+
+    width: 50.5%;
+    height: 101%;
+
+    cursor: pointer;
+    
+    background-image: url("hell.jpg");
+}
+#fail-overlay {
+    position: fixed;
+    
+    top: -1%;
+    left: -1%;
+
+    width: 50.5%;
+    height: 101%;
+    
+    background: grey;
+    opacity: 0.8;
+}
+
+#crit-succ {
+    position: fixed;
+    
+    top: -1%;
+    left: 49.5%;
+
+    width: 50.5%;
+    height: 101%;
+
+    cursor: pointer;
+    
+    background-image: url("heaven.jpg");
+    background-position: 40% 0%;
+}
+#succ-overlay {
+    position: fixed;
+    
+    top: -1%;
+    left: 49.5%;
+
+    width: 50.5%;
+    height: 101%;
+    
+    background: grey;
+    opacity: 0.8;
+}
+
+.dice-roll-panel {
+    position: fixed;
+
+    top: 30%;
+    left: 29%;
+
+    width: 40%;
+
+    border: 2px solid black;
+    background: white;
+
+    text-align: center;
+}
+
+input {
+    width: 20%;
+}
