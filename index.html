@@ -2,28 +2,78 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name='apple-mobile-web-app-capable' content="yes">
+
+        <meta name='mobile-web-app-capable' content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="D&D Helper">
+        <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
+
         <link rel="stylesheet" type="text/css" href="main.css">
         
-        <title>DnD Helper</title>
+        <title>Dungeons and Dragons Helper</title>
     </head>
     
     <body>
-        <div id='crit-fail'></div>
-        <div id='fail-overlay'></div>
-        
-        <div id='crit-succ'></div>
-        <div id='succ-overlay'></div>
-        
-        <div class='dice-roll-panel'>
-            <h1>Roll Dice</h1>
+
+        <div id="app-display">
+            <div id='crit-fail'></div>
+            <div id='fail-overlay'></div>
             
-            <input id='number-of-dice' type="number" step='1' name=""> d <input id='dice-type' type="number" step='1' name=""> + <input id='dice-bonus' type="number" step='1' name="">
-            <br>
-            <button id='roll-button'>Roll</button>
-            <br>
-            Last Result = <span id='last-result'>n/a</span>
+            <div id='crit-succ'></div>
+            <div id='succ-overlay'></div>
+            
+            <div class='dice-roll-panel'>
+                <h1 id='command-title'>Roll Dice</h1>
+                
+                <select id='number-of-dice'>
+                    <option value='1'>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+                d 
+                <select id='dice-type'>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>6</option>
+                    <option>8</option>
+                    <option>10</option>
+                    <option>12</option>
+                    <option>20</option>
+                    <option>100</option>
+                </select>
+                + 
+                <select id='dice-bonus'>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+                <br>
+                <br>
+                Shake To Roll
+                <br>
+                Last Result = <span id='last-result'>n/a</span>
+            </div>
         </div>
 
+        <script type="text/javascript" src='shake.js'></script>
         <script type="text/javascript" src='index.js'></script>
     </body>
 </html>

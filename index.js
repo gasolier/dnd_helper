@@ -1,3 +1,10 @@
+window.onload = function () {
+    // check if the user has installed the onto the home page
+    if (navigator.standalone == false) {
+        confirm("This website is meant to be used from the homepage, please add it to the home screen for the best experience.");
+    }
+}
+
 function roll_die(max) {
     return 1 + Math.floor(Math.random() * Math.floor(max));
 }
@@ -49,17 +56,17 @@ function draw_crit_fail () {
     return random_element(fail_effects);
 }
 
-
-document.getElementById('roll-button').onclick = function () {
+function handle_dice_roll () {
     document.getElementById("succ-overlay").style.setProperty('display', 'block');
     document.getElementById("fail-overlay").style.setProperty('display', 'block');
-    
+    console.log(document.getElementById('number-of-dice').value);
+    console.log(document.getElementById('dice-type').value);
     let result = roll_all_dice(
                     parseInt(document.getElementById('number-of-dice').value),
                     parseInt(document.getElementById('dice-type').value),
                     parseInt(document.getElementById('dice-bonus').value)
                  )
-
+    console.log(result)
     document.getElementById('last-result').innerHTML = result.result;
 
     if (result.crit == "Failure") {
@@ -69,6 +76,8 @@ document.getElementById('roll-button').onclick = function () {
         console.log("Critical success");
         document.getElementById("succ-overlay").style.setProperty('display', 'none');
     }
+
+    return result;
 }
 
 document.getElementById("crit-succ").onclick = function () {
@@ -86,3 +95,25 @@ document.getElementById("crit-fail").onclick = function () {
 
     document.getElementById("fail-overlay").style.setProperty('display', 'block');
 }
+
+//listen to shake event and call and display the dice function
+var shakeEvent = new Shake({threshold: 10});
+shakeEvent.start();
+window.addEventListener('shake', function(){
+    let res = handle_dice_roll();
+    if (res.crit == "Success") {
+        alert("Critical Success! " + res.result);
+    } else if (res.crit == "Failure") {
+        alert("Critical Failure! " + res.result);
+    } else {
+        alert(res.result);
+    }
+}, false);
+
+//stop listening
+function stopShake(){
+    shakeEvent.stop();
+}
+
+//check if shake is supported or not.
+if(!("ondevicemotion" in window)){alert("This browser is not supported");}
